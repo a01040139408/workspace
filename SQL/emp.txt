@@ -1,0 +1,36 @@
+CREATE TABLE emp (
+    empno INT PRIMARY KEY,             -- 사원 번호 (고유 값, PRIMARY KEY)
+    ename VARCHAR(50),                 -- 사원 이름 (문자열, 최대 50자)
+    job VARCHAR(50),                   -- 직책 (문자열, 최대 50자)
+    mgr INT,                           -- 관리자의 사원 번호 (NULL 허용)
+    hiredate DATE,                     -- 입사일 (날짜 형식)
+    sal DECIMAL(10, 2),                -- 급여 (소수점 포함, 최대 10자리)
+    comm DECIMAL(10, 2),               -- 커미션 (NULL 허용, 소수점 포함)
+    deptno INT,                        -- 부서 번호 (외래 키)
+    CONSTRAINT fk_dept FOREIGN KEY (deptno) REFERENCES dept(deptno)
+);
+
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7839, 'KING', 'PRESIDENT', NULL, '1981-11-17', 5000, NULL, 10);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7566, 'JONES', 'MANAGER', 7839, '1981-04-02', 2975, NULL, 20);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7698, 'BLAKE', 'MANAGER', 7839, '1981-05-01', 2850, NULL, 30);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7782, 'CLARK', 'MANAGER', 7839, '1981-06-09', 2450, NULL, 10);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7788, 'SCOTT', 'ANALYST', 7566, '1982-12-09', 3000, NULL, 20);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000, NULL, 20);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7844, 'TURNER', 'SALESMAN', 7698, '1981-09-08', 1500, 0, 30);
+
+INSERT INTO emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) 
+VALUES (7900, 'JAMES', 'CLERK', 7698, '1981-12-03', 950, NULL, 30);

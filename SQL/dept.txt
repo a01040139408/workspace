@@ -1,0 +1,11 @@
+CREATE TABLE dept (
+    deptno INT PRIMARY KEY,  -- 부서 번호 (고유 값, PRIMARY KEY)
+    dname VARCHAR(50),       -- 부서 이름 (문자열, 최대 50자)
+    loc VARCHAR(50)          -- 부서 위치 (문자열, 최대 50자)
+);
+
+
+INSERT INTO dept (deptno, dname, loc) VALUES (10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO dept (deptno, dname, loc) VALUES (20, 'RESEARCH', 'DALLAS');
+INSERT INTO dept (deptno, dname, loc) VALUES (30, 'SALES', 'CHICAGO');
+INSERT INTO dept (deptno, dname, loc) VALUES (40, 'OPERATIONS', 'BOSTON');
