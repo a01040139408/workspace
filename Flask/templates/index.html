@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask 웹앱</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨입력 및 출력 시작✨</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 30px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            background-color: #ff99cc;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff6699;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+        .center-table {
+            margin: 0 auto;
+            text-align: center;
+            width: 60%;
+        }
+        td {
+            padding: 15px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>✨입력 및 출력 시작✨</h1>
+    <button id="theme-toggle">🌙 다크 모드 ON/OFF</button>
+    <p>저는 다크/라이트 모드를 지원합니다! 🌓</p>
+    <hr>
+    <p>윤지님의 페이지는 <span id="visit_count">1</span>번째 방문 중 🎉</p>
+    <form method="post">
+        <label for="user_input">아무말이나 해보자:</label>
+        <input type="text" id="user_input" name="user_input" required>
+        <button type="submit" id="submit">💌 제출</button>
+
+
+
+    </form>
+
+    {% if output %}
+        <p>{{ output }}</p>
+    {% endif %}
+<hr>
+    <p>당신은 <strong>행운의 곰돌이</strong>를 만났습니다! 🐻💖</p>
+
+    <!-- 정렬된 이미지와 버튼 -->
+    <table class="center-table">
+    <tr>
+        <!-- 네이버 곰돌이 -->
+        <td style="text-align: center; vertical-align: middle;">
+            <p>네이버 곰돌이</p>
+            <a href="https://www.naver.com" target="_blank">
+                <img src="{{ url_for('static', filename='cute_animation.gif') }}" alt="귀여운 GIF 이미지" width="260">
+            </a>
+        </td>
+        <!-- 인공지능 곰돌이 -->
+        <td style="text-align: center; vertical-align: middle;">
+            <p>인공지능 곰돌이</p>
+            <a href="https://www.chatgpt.com" target="_blank">
+                <img src="{{ url_for('static', filename='bear.png') }}" alt="귀여운 곰돌이" width="240">
+            </a>
+        </td>
+        <!-- 로또 뽑기 버튼 -->
+        <td style="text-align: center; vertical-align: middle;">
+            <p>💥💥주목💥💥</p>
+            <a href="/lotto_page" target="_blank">
+                <button id="lotto">
+    대박기원<br>행운의 로또<br>뽑으러 렛츠고
+</button>
+
+            </a>
+        </td>
+    </tr>
+</table>
+
+
+    <p>곰돌이들을 누르면 순간이동! 😊</p>
+    <hr>
+
+    <h2><marquee>🎯2025 을사년 가즈아ㅏㅏ~~!!🎯     🎯2025 을사년 가즈아ㅏㅏ~~!!    🎯2025 을사년 가즈아ㅏㅏ~~!!</marquee></h2>
+
+<script>
+    const body = document.body;
+    const themeToggle = document.getElementById("theme-toggle");
+
+    themeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        body.classList.toggle("light-mode");
+        themeToggle.textContent = body.classList.contains("dark-mode") ? "☀️ 라이트 ON" : "🌙 다크 ON";
+    });
+
+    // 기본 모드 설정
+    body.classList.add("light-mode");
+</script>
+</body>
+  
+</body>
+</html>

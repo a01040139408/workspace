@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대박기원 행운의 로또</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대박기원 행운의 로또</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            background-color: #ff99cc;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff6699;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 대박기원 행운의 로또 🎯</h1>
+    <form method="post">
+        <button type="submit" id="lotto">🎲뽑기 시작</button>
+
+    </form>
+
+    {% if lotto_numbers %}
+        <h2>생성된 로또 번호:</h2>
+        <p><strong>{{ lotto_numbers }}</strong></p>
+    {% endif %}
+
+    <a href="/" style="display: block; margin-top: 30px; color: #007BFF; text-decoration: none;">🏠 메인 페이지로 돌아가기</a>
+</body>
+</html>

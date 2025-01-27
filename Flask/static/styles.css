@@ -1,0 +1,77 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    text-align: center;
+    background-color: #lightblue;
+}
+
+h1, h2 {
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+table.center-table {
+    margin: 0 auto;
+    text-align: center;
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+td {
+    padding: 15px;
+    vertical-align: top;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button#submit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button#lotto {
+    background-color: #FF5733;
+    color: white;
+    width: 240px;
+    height: 240px;
+    font-size: 24px;
+}
+
+button#lotto:hover {
+    background-color: #C70039;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* 라이트 모드 */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* 다크 모드 */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
