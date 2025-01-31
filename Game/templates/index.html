@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>벽돌깨기 게임 - 치킨 닭다리</title>
+</head>
+<body>
+    <h1>벽돌깨기 게임 🍗</h1>
+    <button onclick="startGame()">게임 시작</button>
+    <script>
+        function startGame() {
+            fetch('/start_game')
+                .then(response => alert("게임이 시작되었습니다!"))
+                .catch(error => console.error("에러 발생:", error));
+        }
+    </script>
+</body>
+</html>
