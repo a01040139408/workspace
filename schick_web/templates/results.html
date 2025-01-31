@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .result {
+            margin-bottom: 20px;
+        }
+        .result a {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>검색 결과</h1>
+    <ul>
+        {% for place in results %}
+        <li class="result">
+            <strong>{{ place.title | safe }}</strong><br>
+            주소: {{ place.roadAddress or "정보 없음" }}<br>
+            전화번호: {{ place.telephone or "정보 없음" }}<br>
+            <a href="{{ place.link }}" target="_blank">지도 보기</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">다시 검색</a>
+</body>
+</html>
