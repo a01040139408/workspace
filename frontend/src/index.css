@@ -1,0 +1,167 @@
+/* 🟨🟨🟨 전체 폰트를 Google Fonts의 Noto Sans KR로 변경 🟨🟨🟨 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 🟨🟨🟨 뉴스 제목 스타일 변경 🟨🟨🟨 */
+h1 {
+  font-weight: 700;
+  color: #343a40;
+}
+
+/* 🟨🟨🟨 뉴스 링크 스타일 변경 🟨🟨🟨 */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* 🟩🟩 뉴스 카테고리 버튼 스타일 🟩🟩 */
+.category-btn {
+  background-color: #007bff !important;  /* 기본 파란색 */
+  color: white !important;
+  border: none !important;
+  font-weight: 500;
+  padding: 7px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🟩🟩 버튼 색상 (각 카테고리별) 🟩🟩 */
+.category-btn:nth-child(1) { background-color: #ff4757 !important; }  /* 정치 */
+.category-btn:nth-child(2) { background-color: #1abc9c !important; }  /* 경제 */
+.category-btn:nth-child(3) { background-color: #f39c12 !important; }  /* 사회 */
+.category-btn:nth-child(4) { background-color: #9b59b6 !important; }  /* 생활문화 */
+.category-btn:nth-child(5) { background-color: #3498db !important; }  /* IT과학 */
+.category-btn:nth-child(6) { background-color: #2ecc71 !important; }  /* 세계 */
+.category-btn:nth-child(7) { background-color: #a86444 !important; }  /* 랭킹 */
+/* 🟩🟩 버튼 호버 효과 추가 🟩🟩 */
+.category-btn:hover {
+  transform: scale(1.08);
+  opacity: 0.85;
+}
+
+/* 🟨🟨🟨 뉴스 이미지 사이즈 🟨🟨🟨 */
+.news-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* 🟨🟨🟨 뉴스 요약 카드 스타일 🟨🟨🟨 */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟨🟨🟨 버튼 기본 스타일 변경 🟨🟨🟨 */
+button {
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+/* 🟨🟨🟨 버튼 호버 효과 추가 🟨🟨🟨 */
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* 🟨🟨🟨 다크 모드 및 라이트 모드 설정 🟨🟨🟨 */
+:root {
+  --background-color: #ffffff;
+  --text-color: #212529;
+  --card-background: #f8f9fa;
+  --button-background: #007bff;
+}
+
+/* 🟨🟨🟨 뉴스 카드 디자인 향상 🟨🟨🟨 */
+.news-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.news-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 🟨🟨🟨 버튼 호버 효과 추가 🟨🟨🟨 */
+button {
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* 🟨🟨🟨 다크 모드 스타일 최적화 🟨🟨🟨 */
+.dark-mode .news-card {
+  background-color: #333 !important;
+  color: white !important;
+}
+
+.dark-mode .list-group-item {
+  background-color: #444 !important;
+  color: white !important;
+}
+
+.dark-mode button {
+  background-color: #17a2b8 !important;
+}
+
+
+.dark-mode {
+  --background-color: #212529;
+  --text-color: #ffffff;
+  --card-background: #343a40;
+  --button-background: #17a2b8;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: var(--card-background) !important;
+}
+
+button {
+  background-color: var(--button-background) !important;
+  color: white !important;
+}
+
+/* 검색 입력 필드와 버튼 스타일 */
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* ==========화면 전체 폭 조절(줄였다가늘였다가) ========== */
+.narrow-container {
+  max-width: 900px;  /* 원하는 최대 폭 (예: 800px) */
+  margin: 0 auto;    /* 가운데 정렬 */
+  padding: 0 15px;   /* 좌우 패딩 (원하는 만큼) */
+}
