@@ -1,7 +1,7 @@
 import sqlite3
 
 # 🟨🟨 SQLite 데이터베이스 연결 🟨🟨
-DB_PATH = "C:/Users/user/projects/news-talk-ai/backend/database/news.db"
+DB_PATH = "C:/Users/20101/news-talk-ai/backend/database/news.db"
 conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
