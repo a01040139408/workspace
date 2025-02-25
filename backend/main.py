@@ -23,7 +23,8 @@ from database.crud import save_article, get_all_articles, delete_article
 from fastapi import Body
 from database.bookmark_crud import bookmark_article, get_bookmarked_articles, delete_bookmark
 from fastapi.responses import FileResponse  # 이미 import 되어 있더라도 다시 선언해도 무방
-
+from collections import Counter
+from konlpy.tag import Okt
 
 
 
@@ -266,6 +267,35 @@ def delete_bookmark_api(bookmark_id: int):
     except Exception as e:
         print(f"북마크 삭제 API 오류: {e}")
         raise HTTPException(status_code=500, detail=f"북마크 삭제 실패: {str(e)}")
+
+
+@app.get("/api/wordcloud")
+def get_wordcloud():
+    try:
+        # DB 연결 및 데이터 조회 (url 제외: title, summary, discussion_point1, discussion_point2, question1, question2, full_discussion)
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT title, summary, discussion_point1, discussion_point2, question1, question2, full_discussion 
+            FROM articles
+        """)
+        rows = cursor.fetchall()
+        conn.close()
+
+        # 각 행의 데이터를 하나의 문자열로 결합 (빈 값은 필터링)
+        combined_text = " ".join([" ".join(filter(None, row)) for row in rows])
+        
+        # KoNLPy의 Okt를 사용하여 명사 추출
+        okt = Okt()
+        nouns = okt.nouns(combined_text)
+        
+        # 명사 빈도 계산 (2자 이상 단어만 남김)
+        frequency = Counter(nouns)
+        word_freq = {word: count for word, count in frequency.items() if len(word) >= 2}
+
+        return {"wordcloud": word_freq}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":
